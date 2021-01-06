@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/********Header Style********/
+.header {
+  background-color: #4863a0;
+}
+
+/*********Nav-bar**********/
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  position: sticky;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li a:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 900px) {
+  ul {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  li a {
+    float: left;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  ul {
+    text-align: center;
+    float: none;
+  }
+  li a {
+    text-align: center;
+    float: none;
+  }
+}
+/*********** Login ****************/
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  background-color: royalblue;
+}
+
+.account-item {
+  display: block;
+  background: #f1f1f1;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.account-item button {
+  float: right;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+a.add-new-account {
+  margin-bottom: 100px;
+  display: block;
+}
