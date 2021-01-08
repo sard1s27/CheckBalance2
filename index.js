@@ -2,7 +2,6 @@ import { Header, Nav, Main, Footer } from "./components";
 import * as state from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
-import { Accounts } from "./components/views";
 
 function render(st, parmas) {
   document.querySelector("#root").innerHTML = `
@@ -18,31 +17,33 @@ const router = new Navigo(window.location.origin);
 router.on({
   "/": () => {
     render(state.Login);
-    document.getElementById("form").addEventListener("submit", e => {
-      let form = e.target;
+    document.getElementById("form").addEventListener("submit", event => {
+      event.preventDefault();
+      let form = event.target;
       let username = form.querySelector("[name='uname']").value;
       let password = form.querySelector("[name='psw']").value;
-
+      console.log("login submitted");
       fetch("http://localhost:3000/login", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ username: username, password: password })
+        body: JSON.stringify({ username, password })
       })
-        .then(e => {
-          if (e.ok) return e.json();
-          throw new Error("Something went wrong");
+        .then(response => {
+          if (response.ok) return response.json();
+          return response;
+          // throw new Error("Something went wrong");
         })
-        .then(e => {
-          localStorage.setItem("userId", e._id);
+        .then(response => {
+          console.log("response", response);
+          localStorage.setItem("userId", response._id);
           router.navigate("/Accounts");
         })
-        .catch(() => {
+        .catch(error => {
+          console.log("error", error);
           alert("invalid username or password");
         });
-
-      e.preventDefault();
       return false;
     });
   },
@@ -52,6 +53,7 @@ router.on({
     if (page == "Signup") {
       render(state[page]);
       document.getElementById("register-form").addEventListener("submit", e => {
+        e.preventDefault();
         let form = e.target;
         let firstName = form.querySelector("[name='firstName']").value;
         let lastName = form.querySelector("[name='lastName']").value;
@@ -82,7 +84,6 @@ router.on({
             alert("invalid username or password");
           });
 
-        e.preventDefault(); 
         return false;
       });
     } else if (page == "Accounts") {

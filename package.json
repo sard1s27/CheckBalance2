@@ -6,7 +6,7 @@
   "scripts": {
     "parcel-build": "parcel build index.html && cp _redirects ./dist/",
     "serve": "parcel index.html",
-    "start": "parcel index.html"
+    "server:watch": "nodemon --watch ./server -e js ./server/index.js"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "bootstrap-social": "^5.1.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.20",
