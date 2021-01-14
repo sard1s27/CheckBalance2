@@ -1,6 +1,7 @@
-export default st => {
+export default state => {
   window.createAccount = e => {
     e = e || window.event;
+    e.preventDefault();
     let userId = localStorage.getItem("userId");
     let form = e.target;
 
@@ -18,14 +19,18 @@ export default st => {
       })
     })
       .then(e => {
-        if (e.ok) window.router.navigate("/Accounts");
-        else alert("Something wrong happen, please try again");
-      })
+        // if (e.ok) window.router.navigate("/Accounts");
+        // else alert("Your account has been added");
+      if (e.ok) alert("Testing")
+      else {
+        alert("Your account has been added");
+        window.router.navigate("/Accounts");
+      }
+    })
       .catch(() => {
         alert("Some Error Happen");
       });
 
-    e.preventDefault();
     return false;
   };
   return `<form id="add-new-account-form" method="POST" onsubmit="return window.createAccount()">
@@ -37,7 +42,7 @@ export default st => {
 
   <div class="container mx-auto">
     <label for="amount"><b>Amount</b></label>
-    <input placeholder="Enter Amount" name="amount" required>
+    <input type="number" step=".01" placeholder="Enter Amount" name="amount" required>
   </div>
   <br />
   <br />

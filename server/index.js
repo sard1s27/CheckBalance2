@@ -105,6 +105,15 @@ app.post("/add-new-account/:id", async (request, response) => {
   }
 });
 
+app.post("/transaction", async (request, response) => {
+  const { date, amount, name } = request.body;
+  let transaction = await Transaction.create({
+    date,
+    amount,
+    name
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

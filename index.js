@@ -6,7 +6,6 @@ import { capitalize } from "lodash";
 function render(st, parmas) {
   document.querySelector("#root").innerHTML = `
   ${Header(st)}
-  ${Nav(state.Links)}
   ${Main(st, parmas)}
   ${Footer()}
   `;
@@ -107,12 +106,15 @@ router.on({
     }
   }
 });
+
 router.resolve();
 
 window.router = router;
+
+// Axios.get(""
 
 // add menu toggle to bars icon in nav bar
 // .document.querySelector(".fa-bars")
 // .addEventListener("click", () => {
 //   document.querySelector("nav > ul").classList.toggle("hidden--mobile");
-// });
+// });${Nav(state.Links)}

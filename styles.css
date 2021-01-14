@@ -94,3 +94,19 @@ a.add-new-account {
   margin-bottom: 100px;
   display: block;
 }
+
+.test a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+}
+
+.test2 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

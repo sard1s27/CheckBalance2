@@ -1,10 +1,11 @@
+const { Long } = require("mongodb");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const accountSchema = new mongoose.Schema({
   owner: { type: Schema.Types.ObjectId, ref: "User" },
   name: String,
   balance: Number,
-  transactions: [{ type: Schema.Types.ObjectId, ref: "User" }]
+  transaction: [{ type: Schema.Types.ObjectId, ref: "Transaction" }]
 });
 
 const Account = mongoose.model("Account", accountSchema);

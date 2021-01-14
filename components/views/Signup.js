@@ -27,7 +27,7 @@ export default () => `
 <div class="form-group row">
   <label for="tel" class="col-md-2 col-form-label">Contact Telephone Number</label>
     <div class="col-md-10">
-      <input type="tel" style="color: white" class="form-control" name="telNum" placeholder="Tel. number" />
+      <input type="tel" class="form-control" name="telNum" placeholder="Tel. number" />
     </div>
 </div>
 <div class="form-group row">
